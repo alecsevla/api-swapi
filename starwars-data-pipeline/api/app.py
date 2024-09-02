@@ -6,7 +6,6 @@ from flask import Flask, jsonify, render_template_string
 app = Flask(__name__)
 
 def query_database(query, params=()):
-    # Ajuste para o caminho relativo a partir do diretório atual
     db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data_pipeline', 'starwars.db'))
 
     if not os.path.exists(db_path):
@@ -40,10 +39,13 @@ def hottest_planet():
     query = '''
         SELECT
             name,
-            climate,
-            surface_water
+            climate
         FROM
             planets
+        WHERE
+            surface_water IS NOT NULL AND
+            surface_water != '' AND
+            surface_water != 'unknown'
         ORDER BY
             CASE
                 WHEN climate LIKE '%Superheated%' THEN 1
@@ -58,12 +60,17 @@ def hottest_planet():
                 WHEN climate LIKE '%Artificial Temperate%' THEN 10
                 ELSE 11
             END,
-            surface_water DESC
+            CAST(surface_water AS INTEGER) DESC
         LIMIT 3;
     '''
     planets = query_database(query)
-    return jsonify(planets)
 
+    # Format the response
+    formatted_response = "Top 3 hottest planets in the Star Wars universe:\n\n"
+    for i, planet in enumerate(planets, start=1):
+        formatted_response += f"{i}° name: {planet[0]}, climate: {planet[1]}\n"
+
+    return formatted_response, 200, {'Content-Type': 'text/plain; charset=utf-8'}
 
 @app.route('/appears_most', methods=['GET'])
 def appears_most():
@@ -78,10 +85,15 @@ def appears_most():
         ORDER BY
             film_count DESC
         LIMIT 5;
-
     '''
     characters = query_database(query)
-    return jsonify(characters)
+
+    # Format the response
+    formatted_response = "Top 5 characters that appear most in Star Wars:\n\n"
+    for i, character in enumerate(characters, start=1):
+        formatted_response += f"{i}° name: {character[0]}, appearances: {character[1]}\n"
+
+    return formatted_response, 200, {'Content-Type': 'text/plain; charset=utf-8'}
 
 @app.route('/fastest_ships', methods=['GET'])
 def fastest_ships():
@@ -93,7 +105,13 @@ def fastest_ships():
         LIMIT 3;
     '''
     ships = query_database(query)
-    return jsonify(ships)
+
+    # Format the response
+    formatted_response = "Top 3 fastest ships in the Star Wars universe:\n\n"
+    for i, ship in enumerate(ships, start=1):
+        formatted_response += f"{i}° name: {ship[0]}, speed: {ship[1]} km/h\n"
+
+    return formatted_response, 200, {'Content-Type': 'text/plain; charset=utf-8'}
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
