@@ -1,0 +1,10 @@
+#virtual environment
+venv/
+
+#database files
+starwars.db
+
+#build files
+__pycache__/
+*.pyc
+*.pyo
