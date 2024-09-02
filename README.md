@@ -13,22 +13,22 @@
    ```
 
 ### 3. **Estrutura do Projeto**
-   ├── api/
-   │   ├── __init__.py
-   │   ├── app.py
-   ├── data_pipeline/
-   │   ├── __init__.py
-   │   ├── pipeline.py
-   │   ├── tests.py
-   │   ├── starwars.db
-   ├── docs/
-   │   ├── README.md
-   ├── .gitignore
-   ├── Makefile
-   ├── requirements.txt
-   ├── venv/
    ```
-
+├── api/
+│   ├── __init__.py
+│   ├── app.py
+├── data_pipeline/
+│   ├── __init__.py
+│   ├── pipeline.py
+│   ├── tests.py
+│   ├── starwars.db
+├── docs/
+│   ├── README.md
+├── .gitignore
+├── Makefile
+├── requirements.txt
+├── venv/
+   ```
 ### 4. **Pré-requisitos**
    ```
    - Python 3.8 ou superior
