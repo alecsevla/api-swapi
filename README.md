@@ -35,7 +35,7 @@
    - Python 3.8 ou superior
    - venv (opcional, mas recomendado)
    - Git (para clonar o repositório)
-   - recomendado rodar com WSL
+   - recomendado rodar com WSL, caso seja usuario Windows
    ```
 
 ### 5. **Instalação**
