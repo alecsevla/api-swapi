@@ -21,13 +21,14 @@
 │   ├── __init__.py
 │   ├── pipeline.py
 │   ├── tests.py
-│   ├── starwars.db
-├── docs/
-│   ├── README.md
+│   ├── starwars.db*
 ├── .gitignore
 ├── Makefile
 ├── requirements.txt
-├── venv/
+├── README.md
+├── venv/*
+
+*arquivos de criação
    ```
 ### 4. **Pré-requisitos**
    ```
