@@ -3,6 +3,7 @@ venv/
 
 #database files
 starwars.db
+*.db
 
 #build files
 __pycache__/

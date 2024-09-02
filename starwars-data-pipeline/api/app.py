@@ -88,8 +88,9 @@ def fastest_ships():
     query = '''
         SELECT name, max_atmosphering_speed
         FROM starships
-        ORDER BY max_atmosphering_speed DESC
-        LIMIT 3
+        WHERE max_atmosphering_speed != 'n/a' AND max_atmosphering_speed != ''
+        ORDER BY CAST(max_atmosphering_speed AS INTEGER) DESC
+        LIMIT 3;
     '''
     ships = query_database(query)
     return jsonify(ships)

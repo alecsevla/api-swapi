@@ -1,5 +1,5 @@
 #install dependencies
-install-deps:
+install:
 	pip install -r requirements.txt
 
 #run pipeline
