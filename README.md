@@ -5,7 +5,7 @@
 
 ### 2. **Descrição**
    ```
-   Esta aplicação é uma API desenvolvida com Flask que consome dados da API pública de Star Wars (SWAPI: https://swapi.dev/), faz o armazenamento deles em um banco de dados SQLite e expõe rotas para acessar as informações solicitadas: 
+   Esta aplicação é uma API desenvolvida com Flask que consome dados da API pública de Star Wars (SWAPI: https://swapi.dev/), faz o armazenamento deles em um banco de dados SQLite e expõe rotas para acessar algumas informações: 
    - planetas com os climas mais quentes
    - personagens que mais aparecem
    - naves mais rápidas do universo Star Wars. 
@@ -29,6 +29,7 @@
 ├── venv/*
 
 *arquivos de criação
+
    ```
 ### 4. **Pré-requisitos**
    ```
@@ -42,8 +43,8 @@
 
    1. Clone o repositório:
       ```
-      git clone git@github.com:alecsevla/case-swapi.git
-      cd starwars-data-pipeline
+      git clone git@github.com:alecsevla/api-swapi.git
+
       ```
    2. Crie e ative um ambiente virtual:
       ```
@@ -60,7 +61,7 @@
    python data_pipeline/pipeline.py
    ```
    Esse script irá buscar dados da SWAPI, criar as tabelas no banco de dados SQLite e popular com as informações.
-   Garanta que o pipeline.py seja rodado antes das proximas execuções, para garantir que o banco esteja devidamente preenchido.
+   Garanta que o pipeline.py seja rodado antes das proximas execuções, para que o banco esteja devidamente preenchido.
 
 ### 7. **Executando o teste dos Dados**
    ```
@@ -83,12 +84,16 @@
    - `GET /hottest_planet` - Retorna os 3 planetas mais quentes.
 
 ### 10. **Estrutura do Banco de Dados**
-   - **planets**: Armazena informações sobre os planetas.
+   - **planets**   : Armazena informações sobre os planetas.
    - **characters**: Armazena informações sobre os personagens.
-   - **starships**: Armazena informações sobre as naves.
+   - **starships** : Armazena informações sobre as naves.
+   - **films**     : Armazena informações sobre os filmes.
+   - **species**   : Armazena informações sobre as espécies.
+   - **vehicles**  : Armazena informações sobre os veículos.
 
 ### 11. **Erros Comuns e Soluções**
    - **Erro: Database file not found**: Verifique se o caminho para o banco de dados está correto e se o banco de dados foi gerado na etapa de pipeline.
+   - **Problema: Consulta retorna vazio ou não encontra dados esperados**: Verifique a existência dos dados no banco. 
 
 ### 12. **Considerações Finais**
    - Para customizações adicionais ou melhorias, explore o código nas pastas `api` e `data_pipeline`.
