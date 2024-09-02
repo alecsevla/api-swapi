@@ -14,19 +14,20 @@
 
 ### 3. **Estrutura do Projeto**
    ```
-├── api/
-│   ├── __init__.py
-│   ├── app.py
-├── data_pipeline/
-│   ├── __init__.py
-│   ├── pipeline.py
-│   ├── tests.py
-│   ├── starwars.db*
-├── .gitignore
-├── Makefile
-├── requirements.txt
+├── starwars-data-pipeline/
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── app.py
+│   ├── data_pipeline/
+│   │   ├── __init__.py
+│   │   ├── pipeline.py
+│   │   ├── tests.py
+│   │   ├── starwars.db*
+│   ├── .gitignore
+│   ├── Makefile
+│   ├── requirements.txt
+│   ├── venv/*
 ├── README.md
-├── venv/*
 
 *arquivos de criação
 
